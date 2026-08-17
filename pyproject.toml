@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cli-dataset-inspector"
+version = "0.1.0"
+description = "CLI tool for inspecting datasets"
+requires-python = ">=3.10"
+
+dependencies = [
+    "typer",
+    "pandas",
+    "numpy",
+    "rich"
+]
+
+[project.scripts]
+dataset-inspect = "dataset_inspector.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

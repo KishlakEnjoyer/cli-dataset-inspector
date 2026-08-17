@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+src/cli_dataset_inspector.egg-info/PKG-INFO
+src/cli_dataset_inspector.egg-info/SOURCES.txt
+src/cli_dataset_inspector.egg-info/dependency_links.txt
+src/cli_dataset_inspector.egg-info/entry_points.txt
+src/cli_dataset_inspector.egg-info/requires.txt
+src/cli_dataset_inspector.egg-info/top_level.txt
+src/dataset_inspector/__init__.py
+src/dataset_inspector/cli.py
+src/dataset_inspector/inspector.py
+src/dataset_inspector/loader.py
+src/dataset_inspector/models.py
+src/dataset_inspector/notebook.py
+src/dataset_inspector/report.py
+src/dataset_inspector/rules.py

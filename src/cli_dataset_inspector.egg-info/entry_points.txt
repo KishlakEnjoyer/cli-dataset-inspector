@@ -1,0 +1,2 @@
+[console_scripts]
+dataset-inspect = dataset_inspector.cli:main
