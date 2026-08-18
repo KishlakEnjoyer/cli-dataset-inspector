@@ -9,10 +9,12 @@ description = "CLI tool for inspecting datasets"
 requires-python = ">=3.10"
 
 dependencies = [
-    "typer",
     "pandas",
-    "numpy",
-    "rich"
+    "typer",
+    "rich",
+    "nbformat",
+    "matplotlib",
+    "scikit-learn",
 ]
 
 [project.scripts]

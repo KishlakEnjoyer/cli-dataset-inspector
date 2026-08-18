@@ -5,6 +5,7 @@ from importlib.metadata import version
 
 from .inspector import Inspector
 from .report import CliReport
+from .notebook import create_notebook
 
 app = typer.Typer()
 
@@ -94,10 +95,34 @@ def inspect_dataset(
         data = inspector.inspect()
         cli_reporter = CliReport(data=data)
 
-        cli_reporter.print_shape_table()
-        cli_reporter.print_duplicates_table()
-        cli_reporter.print_missing_table()
-        cli_reporter.print_memory_table()
+        cli_reporter.print_pipeline()
+
+        if jupyter is None:
+            jupyter = typer.confirm(
+                "Generate Jupyter notebook with EDA, preprocessing and baseline model?",
+                default=False,
+            )
+
+        if jupyter:
+            if target is None:
+                typer.echo(
+                    "⚠ Target is not specified. "
+                    "Notebook will contain EDA only; "
+                    "baseline model will be skipped."
+                )
+
+            notebook_path = create_notebook(
+                path=path,
+                target=target,
+                data=data,
+                output=output,
+                baseline=baseline,
+                task=task,
+            )
+
+            typer.echo(
+                f"✓ Jupyter notebook created: {notebook_path}"
+            )
 
     except OSError as error:
         typer.echo(
